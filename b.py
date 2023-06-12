@@ -59,8 +59,15 @@ class BotBinanceFutures():
 
                 _time = i.strftime('%Y-%m-%d %H:%M:%S')
                 close = float(r['close'])
+                digit = 0
+                if tk == 'XRP/USDT':
+                    digit = 4
+                elif tk == 'MATIC/USDT' or tk == 'LINA/USDT':
+                    digit = 5
                 tp_p = close + (close * 0.0006)
+                tp_p = round(tp_p, digit)
                 tp_m = close - (close * 0.0006)
+                tp_m = round(tp_m, digit)
                 high = float(r['high'])
                 low = float(r['low'])
                 direct_prev_0 = r['direct_prev_0']
@@ -147,12 +154,12 @@ class BotBinanceFutures():
             tn = datetime.datetime.now()
             tn_0 = tn.replace(hour=0, minute=0, second=0)
             tn_d = int(((tn - tn_0).seconds) % 900)
-            # time.sleep(900 - tn_d)
+            time.sleep(900 - tn_d)
             self.bool_send_message = True
 
         _tn = datetime.datetime.now()
 
-        tks = ['BTC/USDT', 'ETH/USDT', 'SOL/USDT', 'XRP/USDT', 'MATIC/USDT']
+        tks = ['BTC/USDT', 'ETH/USDT', 'XRP/USDT']
         send_text = ''
         for tk in tks:
             send_text = send_text + f'\n\n' + self.analyze_unrealized(tk)
@@ -171,20 +178,20 @@ class BotBinanceFutures():
 if __name__ == '__main__':
 
     bbf = BotBinanceFutures()
-    bbf.send_message()
+    # bbf.send_message()
 
-    # while True:
+    while True:
 
-    #     try:
+        try:
 
-    #         tn = datetime.datetime.now()
-    #         tn_start = tn.replace(hour=0, minute=0, second=0)
+            tn = datetime.datetime.now()
+            tn_start = tn.replace(hour=0, minute=0, second=0)
 
-    #         if tn >= tn_start and bbf.bool_start == False:
-    #             bbf.send_message()
-    #             bbf.bool_start = True
+            if tn >= tn_start and bbf.bool_start == False:
+                bbf.send_message()
+                bbf.bool_start = True
 
-    #     except Exception as e:
+        except Exception as e:
 
-    #         line_message(f"BotBinanceFutures Error : {e}")
-    #         break
+            line_message(f"BotBinanceFutures Error : {e}")
+            break
