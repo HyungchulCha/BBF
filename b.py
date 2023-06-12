@@ -137,13 +137,15 @@ class BotBinanceFutures():
 
             send_text = send_text + f'\nO :'
             if len(near_price_dn) > 0:
-                tp_max = max(near_price_dn)
-                send_text = send_text + f' {round(tp_max, 8)} <'
-            # send_text = send_text + f' Close {round(close_last, 8)}'
+                if len(near_price_dn) >= 2:
+                    near_price_dn = sorted(near_price_dn)[-2:]
+                send_text = send_text + f' {near_price_dn} <'
             send_text = send_text + f' C'
             if len(near_price_up) > 0:
-                tp_min = min(near_price_up)
-                send_text = send_text + f' < {round(tp_min, 8)}'
+                print(near_price_up)
+                if len(near_price_up) >= 2:
+                    near_price_up = sorted(near_price_up)[:2]
+                send_text = send_text + f' < {near_price_up}'
 
             return send_text
         
