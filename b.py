@@ -113,7 +113,7 @@ class BotBinanceFutures():
             if len(near_price_up) > 0:
                 near_price_up = sorted(near_price_up)
                 npu_cnt = 1
-                for npu in near_price_dn:
+                for npu in near_price_up:
                     if npu_cnt == 1:
                         send_text = send_text + f'\n{npu}'
                     else:
