@@ -109,7 +109,7 @@ class BotBinanceFutures():
                     else:
                         send_text = send_text + f', {npd}'
                     npd_cnt += 1
-            send_text = send_text + f'\nCurrent Position'
+            send_text = send_text + f'\nCurrent Price : {close_last}'
             if len(near_price_up) > 0:
                 near_price_up = sorted(near_price_up)
                 npu_cnt = 1
