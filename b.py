@@ -102,14 +102,24 @@ class BotBinanceFutures():
                         near_price_up.append(tp)
 
             if len(near_price_dn) > 0:
-                if len(near_price_dn) >= 2:
-                    near_price_dn = sorted(near_price_dn)
-                send_text = send_text + f'\n{near_price_dn}'
+                near_price_dn = sorted(near_price_dn)
+                npd_cnt = 1
+                for npd in near_price_dn:
+                    if npd_cnt == 1:
+                        send_text = send_text + f'\n{npd}'
+                    else:
+                        send_text = send_text + f', {npd}'
+                    npd_cnt += 1
             send_text = send_text + f'\nC'
             if len(near_price_up) > 0:
-                if len(near_price_up) >= 2:
-                    near_price_up = sorted(near_price_up)
-                send_text = send_text + f'\n{near_price_up}'
+                near_price_up = sorted(near_price_up)
+                npu_cnt = 1
+                for npu in near_price_dn:
+                    if npu_cnt == 1:
+                        send_text = send_text + f'\n{npu}'
+                    else:
+                        send_text = send_text + f', {npu}'
+                    npu_cnt += 1
 
             return send_text
         
