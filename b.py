@@ -28,7 +28,6 @@ class BotBinanceFutures():
     def analyze_unrealized(self, tk):
 
         send_text = ''
-        send_text = send_text + f'{tk}'
 
         df = self.get_unrealized_df(get_bnc_df(self.bnc, tk, '15m', 4*24*14))
         ul = []
@@ -79,7 +78,7 @@ class BotBinanceFutures():
             _ul_l_len = len(_ul_l)
             _ul_s_len = len(_ul_s)
 
-            send_text = send_text + f'\nS {_ul_s_len} / L {_ul_l_len}'
+            send_text = send_text + f'{tk} : S {_ul_s_len} / L {_ul_l_len}'
 
             near_price_up = []
             near_price_dn = []
@@ -110,7 +109,7 @@ class BotBinanceFutures():
                     else:
                         send_text = send_text + f', {npd}'
                     npd_cnt += 1
-            send_text = send_text + f'\nC'
+            send_text = send_text + f'\nCurrent Position'
             if len(near_price_up) > 0:
                 near_price_up = sorted(near_price_up)
                 npu_cnt = 1
