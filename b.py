@@ -134,7 +134,7 @@ class BotBinanceFutures():
 
         _tn = datetime.datetime.now()
 
-        tks = ['BTC/USDT', 'ETH/USDT', 'XRP/USDT']
+        tks = ['BTC/USDT', 'XRP/USDT', 'SOL/USDT', 'ETH/USDT']
         send_text = ''
         for tk in tks:
             send_text = send_text + f'\n\n' + self.analyze_unrealized(tk)
