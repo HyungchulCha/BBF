@@ -170,6 +170,7 @@ def indicator_ma(data, window):
 def line_message(msg):
     print(msg)
     requests.post(LINE_URL, headers={'Authorization': 'Bearer ' + LINE_TOKEN}, data={'message': msg})
+    requests.post(LINE_URL, headers={'Authorization': 'Bearer ' + LINE_TOKEN_IN}, data={'message': msg})
 
 
 

@@ -6,3 +6,4 @@ BN_SECRET_KEY = 'CXqspDLq4mlJX7MhCw2erzpsoTQfXRHdTwZoRu1XNdgpY2I3t3VdTnMCXq5U0wE
 
 LINE_URL = 'https://notify-api.line.me/api/notify'
 LINE_TOKEN = 'rw8vyo0yRdHqrZfQBvfxd6rKwPEXYoZgZw47yJqG6Op'
+LINE_TOKEN_IN = 'Tn7QhGSL3dmABfowIVj9ZfKAAmfzATr0uvwstg27Z7r'
