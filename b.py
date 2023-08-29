@@ -44,6 +44,8 @@ class BotBinanceFutures():
                 digit = 0
                 if tk == 'XRP/USDT':
                     digit = 4
+                elif tk == 'BCH/USDT':
+                    digit = 2
                 elif tk == 'MATIC/USDT' or tk == 'LINA/USDT':
                     digit = 5
                 tp_p = close + (close * 0.0006)
