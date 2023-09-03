@@ -44,10 +44,8 @@ class BotBinanceFutures():
                 digit = 0
                 if tk == 'XRP/USDT':
                     digit = 4
-                elif tk == 'BCH/USDT':
+                elif tk == 'ETH/USDT':
                     digit = 2
-                elif tk == 'MATIC/USDT' or tk == 'LINA/USDT':
-                    digit = 5
                 tp_p = close + (close * 0.0006)
                 tp_p = round(tp_p, digit)
                 tp_m = close - (close * 0.0006)
@@ -136,7 +134,7 @@ class BotBinanceFutures():
 
         _tn = datetime.datetime.now()
 
-        tks = ['BTC/USDT', 'BCH/USDT', 'XRP/USDT']
+        tks = ['BTC/USDT', 'ETH/USDT', 'XRP/USDT']
         send_text = ''
         for tk in tks:
             send_text = send_text + f'\n\n' + self.analyze_unrealized(tk)
